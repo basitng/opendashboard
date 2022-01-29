@@ -10,9 +10,12 @@ export default function _System() {
       margin: "6rem 2rem",
       //   display: "grid",
       //   placeContent: "center",
+      [theme.breakpoints.down("xs")]: {
+        margin: "6rem 1.4rem",
+      },
     },
     alert: {
-      width: "90%",
+      width: "80%",
       background: green[900],
     },
   }));

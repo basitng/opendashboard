@@ -12,9 +12,15 @@ import ReviewsPage from "./pages/Reviews";
 import AccountPage from "./pages/Account";
 import NotificationPage from "./pages/Notification";
 import createPalette from "@material-ui/core/styles/createPalette";
+import SettingsPage from "./pages/Settings";
 
 function App() {
   const theme = createTheme({
+    typography: {
+      allVariants: {
+        color: grey[400],
+      },
+    },
     palette: createPalette({
       type: "dark",
 
@@ -37,6 +43,7 @@ function App() {
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/profile" element={<AccountPage />} />
           <Route path="/notification" element={<NotificationPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
