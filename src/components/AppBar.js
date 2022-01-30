@@ -19,7 +19,7 @@ import {
   SettingsOutlined,
 } from "@material-ui/icons";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import _SideBar from "../mobile/SideBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function _AppBar() {
   const location = useLocation();
+  const history = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
@@ -58,7 +59,6 @@ export default function _AppBar() {
     setAnchorEl(null);
   };
   const classes = useStyles();
-
   return (
     <div>
       <Hidden mdUp>
@@ -79,14 +79,21 @@ export default function _AppBar() {
             </IconButton>
           </Hidden>
           <Hidden xsDown>
-            <Box component={Link} to="/notification">
-              <IconButton className={classes.icon}>
-                <Badge badgeContent={1} color="secondary">
-                  <NotificationsOutlined />
-                </Badge>
-              </IconButton>
-            </Box>
-            <IconButton className={classes.icon}>
+            <IconButton
+              color="inherit"
+              onClick={() => history("/notification")}
+              className={classes.icon}
+            >
+              <Badge badgeContent={1} color="secondary">
+                <NotificationsOutlined />
+              </Badge>
+            </IconButton>
+
+            <IconButton
+              className={classes.icon}
+              color="inherit"
+              onClick={() => history("/settings")}
+            >
               <SettingsOutlined />
             </IconButton>
           </Hidden>
@@ -100,10 +107,18 @@ export default function _AppBar() {
         onClose={handleClose}
         className={classes.Menu}
       >
-        <MenuItem component={Link} to="/profile" className={classes.MenuItem}>
+        <MenuItem
+          color="inherit"
+          onClick={() => history("/profile")}
+          className={classes.MenuItem}
+        >
           Profile
         </MenuItem>
-        <MenuItem component={Link} to="/" className={classes.MenuItem}>
+        <MenuItem
+          color="inherit"
+          onClick={() => history("/logout")}
+          className={classes.MenuItem}
+        >
           Logout
         </MenuItem>
       </Menu>
