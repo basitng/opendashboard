@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 export default function _SideBar() {
   const classes = useStyles();
   const location = useLocation();
-  const CustomList = ({ to, primary, icon }) => (
+  const CustomList = ({ to, primary, icon, badge }) => (
     <ListItem
       button
       component={Link}
@@ -87,8 +87,17 @@ export default function _SideBar() {
       selected={to === location.pathname}
       className={classes.li}
       classes={{ root: classes.root, selected: classes.selected }}
+      // onClick={() => console.log("clicked")}
     >
-      <ListItemIcon className={classes.icon}>{icon}</ListItemIcon>
+      {badge ? (
+        <ListItemIcon className={classes.icon}>
+          <Badge badgeContent={badge} color="secondary">
+            {icon}{" "}
+          </Badge>
+        </ListItemIcon>
+      ) : (
+        <ListItemIcon className={classes.icon}>{icon}</ListItemIcon>
+      )}
       <ListItemText primary={primary} />
     </ListItem>
   );
@@ -115,11 +124,13 @@ export default function _SideBar() {
             to="/sales"
             icon={<TrendingUpOutlined />}
             primary="Sales"
+            badge={4}
           />
           <CustomList
             to="/product"
             icon={<CardGiftcardOutlined />}
             primary="Products"
+            badge={20}
           />
           <CustomList
             to="/category"
@@ -133,6 +144,7 @@ export default function _SideBar() {
             to="/reviews"
             icon={<MessageOutlined />}
             primary="Reviews"
+            badge={40}
           />
           <CustomList
             to="/profile"
@@ -143,6 +155,7 @@ export default function _SideBar() {
             to="/notification"
             icon={<NotificationsOutlined />}
             primary="Notifications"
+            badge={99}
           />
           <CustomList
             to="/settings"

@@ -90,7 +90,7 @@ export default function _SideBar({ handleOpen, setHandleOpen }) {
   }, [handleOpen]);
 
   const classes = useStyles();
-  const CustomList = ({ to, primary, icon }) => (
+  const CustomList = ({ to, primary, icon, badge }) => (
     <ListItem
       button
       component={Link}
@@ -99,7 +99,15 @@ export default function _SideBar({ handleOpen, setHandleOpen }) {
       className={classes.li}
       classes={{ root: classes.root, selected: classes.selected }}
     >
-      <ListItemIcon className={classes.icon}>{icon}</ListItemIcon>
+      {badge ? (
+        <ListItemIcon className={classes.icon}>
+          <Badge badgeContent={badge} color="secondary">
+            {icon}{" "}
+          </Badge>
+        </ListItemIcon>
+      ) : (
+        <ListItemIcon className={classes.icon}>{icon}</ListItemIcon>
+      )}
       <ListItemText primary={primary} />
     </ListItem>
   );
@@ -131,6 +139,7 @@ export default function _SideBar({ handleOpen, setHandleOpen }) {
             to="/product"
             icon={<CardGiftcardOutlined />}
             primary="Products"
+            badge={12}
           />
           <CustomList
             to="/category"
@@ -144,6 +153,7 @@ export default function _SideBar({ handleOpen, setHandleOpen }) {
             to="/reviews"
             icon={<MessageOutlined />}
             primary="Reviews"
+            badge={20}
           />
           <CustomList
             to="/profile"
@@ -154,6 +164,7 @@ export default function _SideBar({ handleOpen, setHandleOpen }) {
             to="/notification"
             icon={<NotificationsOutlined />}
             primary="Notifications"
+            badge={99}
           />
           <CustomList
             to="/settings"

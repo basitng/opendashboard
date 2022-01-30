@@ -52,6 +52,7 @@ export default function _CreateProduct() {
           <Grid item xs={12} md={12}>
             <TextField
               variant="outlined"
+              color="secondary"
               className={classes.TextField}
               type={"text"}
               fullWidth
@@ -61,6 +62,7 @@ export default function _CreateProduct() {
           <Grid item xs={12} md={12}>
             <TextField
               variant="outlined"
+              color="secondary"
               className={classes.TextField}
               type="number"
               fullWidth
@@ -70,6 +72,7 @@ export default function _CreateProduct() {
           <Grid item xs={12} md={12}>
             <FormControl
               variant="outlined"
+              color="secondary"
               className={classes.TextField}
               fullWidth
               className={classes.formControl}
@@ -96,6 +99,7 @@ export default function _CreateProduct() {
           <Grid item xs={12} md={12}>
             <FormControl
               variant="outlined"
+              color="secondary"
               className={classes.TextField}
               fullWidth
               className={classes.formControl}
@@ -134,7 +138,7 @@ export default function _CreateProduct() {
             <label htmlFor="icon-button-file">
               <IconButton
                 component={Paper}
-                color="primary"
+                color="secondary"
                 aria-label="upload picture"
                 component="span"
                 className={classes.IconButton}
@@ -144,7 +148,9 @@ export default function _CreateProduct() {
             </label>
           </Grid>
           <Grid item xs={12} md={12}>
-            {/* <Button variant="contained">Add Product</Button> */}
+            <Button variant="contained" color="secondary" size="large">
+              Add Product
+            </Button>
           </Grid>
         </Grid>
       </form>

@@ -1,6 +1,7 @@
 import React from "react";
-import { ThemeProvider } from "@material-ui/core";
+
 import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { grey, indigo, purple } from "@material-ui/core/colors";
@@ -21,15 +22,17 @@ function App() {
         color: grey[400],
       },
     },
-    palette: createPalette({
+    palette: {
       type: "dark",
 
       primary: {
         main: indigo[600],
         light: purple[600],
       },
-      text: "#555",
-    }),
+      text: {
+        secondary: grey[300],
+      },
+    },
   });
   return (
     <ThemeProvider theme={theme}>

@@ -56,19 +56,14 @@ export default function _CreateProduct() {
               type={"text"}
               fullWidth
               label="Category Name"
+              color="secondary"
             />
           </Grid>
 
           <Grid item xs={12} md={12}>
-            <IconButton
-              component={Paper}
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-              className={classes.IconButton}
-            >
-              <AddOutlined />
-            </IconButton>
+            <Button variant="contained" color="secondary" size="large">
+              Add{" "}
+            </Button>
           </Grid>
         </Grid>
       </form>

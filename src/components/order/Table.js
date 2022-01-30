@@ -9,11 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Button, Container, IconButton } from "@material-ui/core";
 import { green, grey, purple, red } from "@material-ui/core/colors";
-import {
-  DeleteOutline,
-  EditOutlined,
-  VisibilityOutlined,
-} from "@material-ui/icons";
+import { CheckOutlined, VisibilityOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -64,8 +60,14 @@ export default function _Tables() {
               <TableCell>99 adeola thanni street</TableCell>
               <TableCell>Ikorodu</TableCell>
               <TableCell style={{ color: green[300] }}>Paid</TableCell>
-              <TableCell style={{ color: grey[200] }} onClick={handleClick}>
-                Delivered
+              <TableCell onClick={handleClick}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  startIcon={<CheckOutlined />}
+                >
+                  Yes
+                </Button>
               </TableCell>
               <TableCell>
                 <IconButton>
@@ -83,8 +85,14 @@ export default function _Tables() {
               <TableCell>99 adeola thanni street</TableCell>
               <TableCell>Festac</TableCell>
               <TableCell style={{ color: green[300] }}>Paid</TableCell>
-              <TableCell style={{ color: grey[200] }} onClick={handleClick}>
-                Delivered
+              <TableCell onClick={handleClick}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  startIcon={<CheckOutlined />}
+                >
+                  Yes
+                </Button>
               </TableCell>
               <TableCell>
                 <IconButton>
@@ -102,8 +110,14 @@ export default function _Tables() {
               <TableCell>13 lekki street</TableCell>
               <TableCell>Ikorodu</TableCell>
               <TableCell style={{ color: red[300] }}>Pending</TableCell>
-              <TableCell style={{ color: grey[200] }} onClick={handleClick}>
-                Awaiting
+              <TableCell onClick={handleClick}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  startIcon={<CheckOutlined />}
+                >
+                  Yes
+                </Button>
               </TableCell>
               <TableCell>
                 <IconButton>

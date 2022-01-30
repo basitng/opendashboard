@@ -2,6 +2,7 @@ import {
   AppBar,
   Avatar,
   Badge,
+  Box,
   Hidden,
   IconButton,
   Link,
@@ -18,6 +19,7 @@ import {
   SettingsOutlined,
 } from "@material-ui/icons";
 import React from "react";
+import { useLocation } from "react-router-dom";
 import _SideBar from "../mobile/SideBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function _AppBar() {
+  const location = useLocation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
@@ -64,7 +67,7 @@ export default function _AppBar() {
       <AppBar elevation={4} className={classes.appBar}>
         <Toolbar>
           <Typography variant="h5" color={"textSecondary"}>
-            Dashboard
+            {location.pathname}
           </Typography>
           <Typography style={{ flex: 1 }} />
           <Hidden mdUp>
@@ -76,11 +79,13 @@ export default function _AppBar() {
             </IconButton>
           </Hidden>
           <Hidden xsDown>
-            <IconButton className={classes.icon}>
-              <Badge badgeContent={1} color="secondary">
-                <NotificationsOutlined />
-              </Badge>
-            </IconButton>
+            <Box component={Link} to="/notification">
+              <IconButton className={classes.icon}>
+                <Badge badgeContent={1} color="secondary">
+                  <NotificationsOutlined />
+                </Badge>
+              </IconButton>
+            </Box>
             <IconButton className={classes.icon}>
               <SettingsOutlined />
             </IconButton>
